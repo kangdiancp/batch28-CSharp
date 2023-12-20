@@ -1,0 +1,15 @@
+C:\bootcamp\dotnet\Batch28Solution\Day03\bin\Debug\net7.0\Day03.exe
+C:\bootcamp\dotnet\Batch28Solution\Day03\bin\Debug\net7.0\Day03.deps.json
+C:\bootcamp\dotnet\Batch28Solution\Day03\bin\Debug\net7.0\Day03.runtimeconfig.json
+C:\bootcamp\dotnet\Batch28Solution\Day03\bin\Debug\net7.0\Day03.dll
+C:\bootcamp\dotnet\Batch28Solution\Day03\bin\Debug\net7.0\Day03.pdb
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.csproj.AssemblyReference.cache
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.GeneratedMSBuildEditorConfig.editorconfig
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.AssemblyInfoInputs.cache
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.AssemblyInfo.cs
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.csproj.CoreCompileInputs.cache
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.dll
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\refint\Day03.dll
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.pdb
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\Day03.genruntimeconfig.cache
+C:\bootcamp\dotnet\Batch28Solution\Day03\obj\Debug\net7.0\ref\Day03.dll
