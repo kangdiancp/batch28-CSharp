@@ -13,6 +13,10 @@ namespace Day06.Repository
         IEnumerator<Employee>  FindAll();
         IEnumerable<Employee> FindAllEmployee();
 
+        Task<IEnumerable<Employee>> FindAllEmployeeAsync();
+
+        IAsyncEnumerable<Employee> FindAllEmployeeIAsync();
+
         Employee FindEmployeeById(long id);
 
         IEnumerable<Employee> FindEmployeeByFirstName(string firstName);

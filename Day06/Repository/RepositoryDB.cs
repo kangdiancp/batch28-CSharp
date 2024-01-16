@@ -184,5 +184,54 @@ namespace Day06.Repository
             _adoDbContext.Dispose();
             return employee;
         }
+
+        public async Task<IEnumerable<Employee>> FindAllEmployeeAsync()
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "select EmployeeId,LastName, FirstName,BirthDate from Employees",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] {}
+            };
+
+            var dataSet = _adoDbContext.ExecuteReaderAsync<Employee>(model);
+
+            var employees = new List<Employee>();
+
+            //selalu gunakan iterator tuk dapatkan value dari IEnumerator
+            while (await dataSet.MoveNextAsync())
+            {
+                employees.Add(dataSet.Current);
+                //yield return employee;
+
+            }
+
+            _adoDbContext.Dispose();
+
+            return employees;
+        }
+
+        public async IAsyncEnumerable<Employee> FindAllEmployeeIAsync()
+        {
+            SqlCommandModel model = new SqlCommandModel()
+            {
+                CommandText = "select EmployeeId,LastName, FirstName,BirthDate from Employees",
+                CommandType = CommandType.Text,
+                CommandParameters = new SqlCommandParameterModel[] { }
+            };
+
+            var dataSet = _adoDbContext.ExecuteReaderAsync<Employee>(model);
+
+            
+            //selalu gunakan iterator tuk dapatkan value dari IEnumerator
+            while (await dataSet.MoveNextAsync())
+            {
+                var employee = dataSet.Current;
+                yield return employee;
+
+            }
+
+            _adoDbContext.Dispose();
+        }
     }
 }

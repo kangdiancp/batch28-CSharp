@@ -7,7 +7,7 @@ internal class Program
 {
 
     private static IConfigurationRoot Configuration;
-    private static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         BuildConfiguration();
         var adoDbContext= new AdoDbContext(connectionString: Configuration.GetConnectionString("NorthWindDS"));
@@ -18,44 +18,44 @@ internal class Program
         IRepository repositoryDB = new RepositoryDB(adoDbContext);
 
         //1.call method di interface, FindAll return IEnumerator, tuk dapat value harus di loop dulu
-        var employees = repositoryDB.FindAll();
-        while (employees.MoveNext())
-        {
-            var employee = employees.Current;
-            Console.WriteLine(employee.ToString());
-        }
+        /*        var employees = repositoryDB.FindAll();
+                while (employees.MoveNext())
+                {
+                    var employee = employees.Current;
+                    Console.WriteLine(employee.ToString());
+                }*/
 
 
 
         //2. FindAllEmployee() return IEnumerable langsung dapat di loop using foreach
-        var emps = repositoryDB.FindAllEmployee();
-        foreach (var employee in emps)
-        {
-            Console.WriteLine(employee.ToString());
-        }
+        /*        var emps = repositoryDB.FindAllEmployee();
+                foreach (var employee in emps)
+                {
+                    Console.WriteLine(employee.ToString());
+                }*/
 
         //3. FindEmployeeById
-        var foundEmployee = repositoryDB.FindEmployeeById(2);
-        Console.WriteLine($"Found Empployee : {foundEmployee}");
+        /*        var foundEmployee = repositoryDB.FindEmployeeById(2);
+                Console.WriteLine($"Found Empployee : {foundEmployee}");*/
 
         //4. FindEmployeeByFirstName
-        var filterEmployeeByName = repositoryDB.FindEmployeeByFirstName("A%");
-        foreach (var employee in filterEmployeeByName)
-        {
-            Console.WriteLine(employee.ToString());
-        }
+        /*        var filterEmployeeByName = repositoryDB.FindEmployeeByFirstName("A%");
+                foreach (var employee in filterEmployeeByName)
+                {
+                    Console.WriteLine(employee.ToString());
+                }*/
 
         //5. createEmployee, EmployeeId ga diisi, otomatis dari sequence database
-        var newEmps = new Employee { 
+        /*var newEmps = new Employee { 
             FirstName="Yuli",
             LastName="Ayu",
             BirthDate = DateTime.Now };
 
         newEmps = repositoryDB.CreateEmployee(ref newEmps);
-        Console.WriteLine(newEmps.ToString());
+        Console.WriteLine(newEmps.ToString());*/
 
         //6. Update Employee
-        var findUpdateEmps = new Employee
+        /*var findUpdateEmps = new Employee
         {
             EmployeeId = 11,
             FirstName = "Widi",
@@ -64,11 +64,26 @@ internal class Program
         };
 
         var updateEmp = repositoryDB.UpdateEmployee(findUpdateEmps);
-        Console.WriteLine(updateEmp.ToString());
+        Console.WriteLine(updateEmp.ToString());*/
 
 
         //7. delete employee by id 10
-        repositoryDB.DeleteEmployee(10);
+        //repositoryDB.DeleteEmployee(10);
+
+        //8. call method async
+        /*        var employeeAsync = repositoryDB.FindAllEmployeeAsync();
+                foreach (var item in await employeeAsync)
+                {
+                    Console.WriteLine($"{item.ToString()}");
+                }*/
+
+        //9. call generic method
+        IRepositoryBase<Employee> repositoryEmps = new EmployeeRepository(adoDbContext);
+        var employeeGeneric = repositoryEmps.FindAll<Employee>();
+        foreach (var employee in employeeGeneric)
+        {
+            Console.WriteLine($"{employee.ToString()}");
+        }
     }
 
     private static void BuildConfiguration()
