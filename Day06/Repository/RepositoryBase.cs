@@ -17,27 +17,27 @@ namespace Day06.Repository
             _adoDbContext = adoDbContext;
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> FindAll()
+        public virtual IEnumerable<T> FindAll()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> FindById()
+        public virtual IEnumerable<T> FindById()
         {
             throw new NotImplementedException();
         }
 
-        public T Save(T entity)
+        public virtual T Save(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public T Update(T entity)
+        public virtual T Update(T entity)
         {
             throw new NotImplementedException();
         }

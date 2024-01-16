@@ -78,12 +78,20 @@ internal class Program
                 }*/
 
         //9. call generic method
-        IRepositoryBase<Employee> repositoryEmps = new EmployeeRepository(adoDbContext);
-        var employeeGeneric = repositoryEmps.FindAll<Employee>();
-        foreach (var employee in employeeGeneric)
+        /*        IRepositoryBase<Employee> repositoryEmps = new EmployeeRepository(adoDbContext);
+                var employeeGeneric = repositoryEmps.FindAll<Employee>();
+                foreach (var employee in employeeGeneric)
+                {
+                    Console.WriteLine($"{employee.ToString()}");
+                }*/
+
+        IRepositoryBase<Customer> iRepo = new CustomerRepository(adoDbContext);
+        var customers = iRepo.FindAll();
+        foreach (var item in customers)
         {
-            Console.WriteLine($"{employee.ToString()}");
+            Console.WriteLine($"{item.ToString()}");
         }
+
     }
 
     private static void BuildConfiguration()
