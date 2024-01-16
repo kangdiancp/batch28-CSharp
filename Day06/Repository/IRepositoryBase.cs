@@ -9,9 +9,9 @@ namespace Day06.Repository
 {
     internal interface IRepositoryBase <T>
     {
-        IEnumerable<T> FindAll<T>();
+        IEnumerable<T> FindAll();
 
-        IEnumerable<T> FindById<T>();
+        IEnumerable<T> FindById();
 
         T Save(T entity);
 

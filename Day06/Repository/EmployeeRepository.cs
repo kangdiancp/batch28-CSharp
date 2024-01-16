@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Day06.Repository
 {
-    internal class EmployeeRepository : RepositoryBase, IRepositoryBase<Employee>
+    internal class EmployeeRepository : RepositoryBase<Employee>, IRepositoryBase<Employee>
     {
         public EmployeeRepository(AdoDbContext adoDbContext) : base(adoDbContext)
         {
