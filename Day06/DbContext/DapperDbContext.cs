@@ -1,20 +1,16 @@
-﻿using CH10_DataAccessBenchmarks.Models;
+﻿
 using Dapper;
-using System;
-using System.Collections.Generic;
+
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Day06.DbContext
 {
-    public class DapperDotNet : IDisposable
+    public class DapperDbContext : IDisposable
     {
         private bool isDisposed = false;
         private IDbConnection _dbConnection;
-        public DapperDotNet(string connection)
+        public DapperDbContext(string connection)
         {
             SimpleCRUD
                     .SetDialect(SimpleCRUD.Dialect.SQLServer);
@@ -143,9 +139,9 @@ namespace Day06.DbContext
                 var parameters = new DynamicParameters();
                 foreach (SqlCommandParameterModel parameter
                  in model.CommandParameters) parameters.Add(
-    parameter.ParameterName,
-    parameter.Value
-    );
+                    parameter.ParameterName,
+                    parameter.Value
+                    );
                 return _dbConnection.Query<Product>(
                     model.CommandText,
                     parameters,
